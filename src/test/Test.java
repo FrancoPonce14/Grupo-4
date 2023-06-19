@@ -1,5 +1,6 @@
 package test;
 
+
 import model.Coche;
 import model.Puente;
 
@@ -8,7 +9,7 @@ public class Test {
 	public static void main(String[] args) {
 		
 		Puente puente = new Puente();
-		Thread Sur = new Thread(new Runnable() // CREAMOS EL THREAD SUR
+		/*Thread Sur = new Thread(new Runnable() // CREAMOS EL THREAD SUR
 		{
 			@SuppressWarnings("deprecation")
 			@Override
@@ -36,7 +37,7 @@ public class Test {
 					Coche coche = new Coche(puente);
 					Thread hilo = new Thread(coche);
 					coche.setNombre("Coche Norte:  " + hilo.getId());
-					hilo.start(); // starts thread
+					hilo.start();
 					try {
 						Thread.sleep(2000);
 					} catch (InterruptedException  e) {
@@ -44,7 +45,9 @@ public class Test {
 					}
 				}
 			}
-		});
+		});*/
+		Thread Sur = new Thread(new Coche(puente, "coche sur"));
+		Thread Norte = new Thread(new Coche(puente, "coche norte"));
 
 		// HACEMOS QUE AMBOS HILOS EMPIEZEN A EJECUTARSE CONCURRENTEMENTE
 		Sur.start();

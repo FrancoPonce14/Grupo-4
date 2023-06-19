@@ -12,15 +12,15 @@ public class Puente {
 	
 	public void Cruzar(Coche auto) {
 		try {
-			System.out.println(auto.getNombre()+" <--- Esta esperando para cruzar el puente! ");
+			System.out.println(auto.getNombre()+" "+auto.getId()+" <--- Esta esperando para cruzar el puente! ");
 			semaforo.acquire(); // DAMOS PERMISO PARA QUE PASE EL COCHE
-			System.out.println(auto.getNombre()+" <--- Esta Cruzando el puente");
+			System.out.println(auto.getNombre()+" "+auto.getId()+" <--- Esta Cruzando el puente");
 			Thread.sleep(2000);
 			
 		}catch(Exception e) {
 			System.out.println(e);
 		}finally {
-			System.out.println(auto.getNombre()+" <--- Termino de cruzar el puente");
+			System.out.println(auto.getNombre()+" "+auto.getId()+" <--- Termino de cruzar el puente");
 			//Y REINICIAMOS EL SEMAFORO PARA QUE PUEDA PASAR EL SIGUIENTE AUTO
 			semaforo.release();
 		}
