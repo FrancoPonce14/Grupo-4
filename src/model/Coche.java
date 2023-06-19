@@ -16,7 +16,7 @@ public class Coche implements Runnable{
         return random.nextInt(100)+1;
     }
 	
-	public void run() { //DEFINIMOS EL METODO RUN PARA UTILIZAR EN LA INTERFAZ RUNNEABLE
+	public void run() {
 		while(true) {
 			int id = generarID();
 			puente.Cruzar(this, id);

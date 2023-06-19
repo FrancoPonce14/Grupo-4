@@ -7,7 +7,7 @@ public class Puente {
 	private Semaphore semaforo;
 	
 	public Puente() {
-		semaforo = new Semaphore(1); //PARA QUE EL PUENTE SEA DE UN SOLO SENTIDO
+		semaforo = new Semaphore(1); 
 	}
 	
 	public void Cruzar(Coche auto, int id) {
