@@ -6,21 +6,20 @@ public class Coche implements Runnable{
 	
 	private String nombre;
 	private Puente puente;
-	private int id;
 	
 	public Coche(Puente puente, String nombre) {
 		this.puente = puente;
 		this.nombre = nombre;
-		this.id = generarID();
 	} 
     private int generarID() {
         Random random = new Random();
-        return random.nextInt(Integer.MAX_VALUE);
+        return random.nextInt(100)+1;
     }
 	
 	public void run() { //DEFINIMOS EL METODO RUN PARA UTILIZAR EN LA INTERFAZ RUNNEABLE
 		while(true) {
-			puente.Cruzar(this);
+			int id = generarID();
+			puente.Cruzar(this, id);
 			try {
 				Thread.sleep(2000);
 			}catch(InterruptedException e) {
@@ -45,13 +44,5 @@ public class Coche implements Runnable{
 		this.puente = puente;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-	
 	
 }
